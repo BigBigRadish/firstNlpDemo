@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from bs4 import BeautifulSoup#��beautifulsoup��ȡ��ҳ
+from bs4 import BeautifulSoup#beautifulsoup
 import requests
 import urllib.request;
 import time

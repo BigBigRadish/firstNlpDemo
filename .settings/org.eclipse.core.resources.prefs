@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding/genresStatics.py=utf-8
 encoding/jdItemsCrawler.py=utf-8
 encoding/lyricsCrawler.py=utf-8
 encoding/netbaseplaylistCrawler.py=utf-8

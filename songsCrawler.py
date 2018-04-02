@@ -9,12 +9,12 @@ import pymysql
 import threading
 conn = pymysql.connect(host='127.0.0.1', user='root', password='147258', db='netbaseplaylist', charset='utf8mb4')
 cur=conn.cursor() 
-select_sql = 'SELECT * FROM playlist limit 9086,11200'
+select_sql = 'SELECT * FROM playlist limit 10089,12330'
 cur.execute(select_sql)
 result = cur.fetchall()
 print(result)
 list=[]
-count=9085
+count=10089
 for r in result:
     bigtype=r[0]
     genres=r[1]

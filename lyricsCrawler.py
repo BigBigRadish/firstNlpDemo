@@ -13,7 +13,7 @@ import pymysql
 from pymongo import MongoClient
 import DBUtils
 from DBUtils.PooledDB import PooledDB
-user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
+user_agent = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.4882.400 QQ'
 headers={'User-Agent':user_agent}
 pool = PooledDB(pymysql,5,host='localhost',user='root',passwd='147258',db='songslist',port=3306,charset='utf8mb4') #5为连接池里的最少连接数
 con=MongoClient('localhost', 27017)
@@ -24,11 +24,11 @@ def task1():
     collection=db.lyrics   #连接mydb数据库，没有则自动创建
     conn = pool.connection()  #以后每次需要数据库连接就是用connection（）函数获取连接就好了
     cur=conn.cursor() 
-    select_sql = 'SELECT * FROM songslist limit 101001,146360'
+    select_sql = 'SELECT * FROM songslist limit 192306,194570'
     cur.execute(select_sql)
     result = cur.fetchall()
     content=[];
-    count=101000
+    count=192306
     for r in result:
         count+=1
         bigtype=r[0]
