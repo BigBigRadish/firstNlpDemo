@@ -11,6 +11,7 @@ from pymongo import MongoClient
 con=MongoClient('localhost', 27017)
 db = con.netbaseSongsLyrics
 collection=db.wordCut   #连接mydb数据库，没有则自动创建
+collection1=db.wordsCut
 #lyricsObj=collection.find_one();
 #obj_lyrics=lyricsObj["歌词"];
 #print(obj_lyrics)
@@ -56,6 +57,13 @@ def seg_sentence(sentence,i):
         freq=freq;
         wordDetail = {"genres":genres,"word":word,"flag":flag,"freq":freq}
         collection.insert(wordDetail)
+#分词1
+def seg_sentence1(sentence,i):  
+    sentence_seged = jieba.cut(sentence.strip(),cut_all = False)  
+    genres=i
+    wordsCut=' '.join(sentence_seged)
+    wordDetail = {"genres":i,"words":wordsCut}
+    collection1.insert(wordDetail)
 #分词
 '''
 genres =collection.distinct("流派",{});
@@ -65,13 +73,13 @@ genres=['华语', '欧美', '日语', '韩语', '粤语', '小语种', '流行',
 for i in genres:
     file = open("C:/Users/Agnostic/Desktop/netbaseLyrics/riginalData/"+i+".txt",encoding='utf-8') 
     txt = file.read()
-    txt1=re.sub("[\s+\.\!\/_,$%^*(+\"\'：]+|[+——！，。？、~@#￥%……&*（）:】-一’()【-]+", "",txt)  
+    txt1=re.sub("[\s+\.\!\/_,$%^*(+\"\'：]+|[+——！，。？、~@#￥%……&*（）:】-一’()【-]+", " ",txt)  
 #text='狗尾巴牛尾巴尾巴'  
 #sent_tokenize_list = WordPunctTokenizer().tokenize(text) 
 #print(sent_tokenize_list) 
 
     print(txt1)
-    seg_sentence(txt1,i)
+    seg_sentence1(txt1,i)
 
         
    # with open("C:/Users/Agnostic/Desktop/netbaseLyrics/分词文件/游戏_1.txt","a",encoding='utf-8') as f:
