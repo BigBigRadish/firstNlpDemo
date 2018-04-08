@@ -6,3 +6,4 @@ encoding/netbaseplaylistCrawler.py=utf-8
 encoding/playlistUrlCrawler.py=utf-8
 encoding/songsCrawler.py=utf-8
 encoding/tf_Idf_correlation_analysis.py=utf-8
+encoding/wordsCut.py=utf-8
